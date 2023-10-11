@@ -28,6 +28,7 @@ class testWidget extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Hello, 1",
@@ -37,8 +38,27 @@ class testWidget extends StatelessWidget {
                 "Hello, 2",
                 style: TextStyle(fontSize: 32, color: Colors.black),
               ),
-
+              Column(
+                children: [
+                  Text(
+                    "Hello, 3",
+                    style: TextStyle(fontSize: 32, color: Colors.black),
+                  ),
+                  Text(
+                    "Hello, 4",
+                    style: TextStyle(fontSize: 32, color: Colors.black),
+                  ),
+                  Text(
+                    "Hello, 5",
+                    style: TextStyle(fontSize: 32, color: Colors.black),
+                  ),
+                ],
+              ),
             ],
+          ),
+          Text(
+            DateTime.now().toString(),
+            style: TextStyle(fontSize: 32, color: Colors.black),
           ),
         ],
       ),
