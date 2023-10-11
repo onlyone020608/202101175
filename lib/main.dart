@@ -15,6 +15,11 @@ class testWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: Text(
+        "Hello, flutter",
+        style: TextStyle(fontSize: 32, color: Colors.black),
+      ),
+    );
   }
 }
