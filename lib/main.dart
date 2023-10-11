@@ -16,9 +16,17 @@ class testWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        "Hello, flutter",
-        style: TextStyle(fontSize: 32, color: Colors.black),
+      child: Column(
+        children: [
+          Text(
+            "Hello, flutter",
+            style: TextStyle(fontSize: 32, color: Colors.black),
+          ),
+          Text(
+            "Hello, student",
+            style: TextStyle(fontSize: 32, color: Colors.black),
+          ),
+        ],
       ),
     );
   }
