@@ -26,6 +26,20 @@ class testWidget extends StatelessWidget {
             "Hello, student",
             style: TextStyle(fontSize: 32, color: Colors.black),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Hello, 1",
+                style: TextStyle(fontSize: 32, color: Colors.black),
+              ),
+              Text(
+                "Hello, 2",
+                style: TextStyle(fontSize: 32, color: Colors.black),
+              ),
+
+            ],
+          ),
         ],
       ),
     );
