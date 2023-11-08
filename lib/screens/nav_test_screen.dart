@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'test_widget_screen.dart';
+import 'package:mobile_project/Screens/input_test_screen.dart';
+import 'package:mobile_project/Screens/test_widget_screen.dart';
 
 import '../main.dart';
 
@@ -22,12 +23,7 @@ class _NavTestScreenState extends State<NavTestScreen> {
           children: [
             TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeWidget(),
-                  ),
-                );
+                Navigator.popUntil(context, (route) => route.isFirst);
               },
               child: Text(
                 'Go To Home',
@@ -45,6 +41,20 @@ class _NavTestScreenState extends State<NavTestScreen> {
               },
               child: Text(
                 'Go To Test Widget',
+                style: TextStyle(fontSize: 26),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InputTestScreen(),
+                  ),
+                );
+              },
+              child: Text(
+                'Go To Input Test',
                 style: TextStyle(fontSize: 26),
               ),
             ),

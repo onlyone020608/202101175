@@ -20,6 +20,9 @@ class _InputTestScreenState extends State<InputTestScreen> {
           CheckBoxTest(),
           CheckBoxTest(),
           CheckBoxTest(),
+          RadioButtonTest(),
+          RadioButtonTest(),
+          SliderTest(),
         ],
       ),
     );
@@ -60,5 +63,76 @@ class _CheckBoxTestState extends State<CheckBoxTest> {
     setState(() {
       values[index] = value!;
     });
+  }
+}
+
+enum TestValues {
+  R1,
+  R2,
+  R3,
+}
+
+class RadioButtonTest extends StatefulWidget {
+  const RadioButtonTest({super.key});
+
+  @override
+  State<RadioButtonTest> createState() => _RadioButtonTestState();
+}
+
+class _RadioButtonTestState extends State<RadioButtonTest> {
+  TestValues? selectedValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Radio<TestValues>(
+            value: TestValues.R1,
+            groupValue: selectedValue,
+            onChanged: (value) => setState(() {
+                  selectedValue = value;
+                })),
+        Radio<TestValues>(
+            value: TestValues.R2,
+            groupValue: selectedValue,
+            onChanged: (value) => setState(() {
+                  selectedValue = value;
+                })),
+        Radio<TestValues>(
+            value: TestValues.R3,
+            groupValue: selectedValue,
+            onChanged: (value) => setState(() {
+                  selectedValue = value;
+                })),
+      ],
+    );
+  }
+}
+
+class SliderTest extends StatefulWidget {
+  const SliderTest({super.key});
+
+  @override
+  State<SliderTest> createState() => _SliderTestState();
+}
+
+class _SliderTestState extends State<SliderTest> {
+  double value = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('$value'),
+        Slider(
+          value: value,
+          onChanged: (newValue) => setState(() => value = newValue),
+          label: value.round().toString(),
+          divisions: 100,
+          max: 100,
+          min: 0,
+        ),
+      ],
+    );
   }
 }
