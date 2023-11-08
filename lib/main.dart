@@ -1,66 +1,45 @@
 import 'package:flutter/material.dart';
+import 'screens/nav_test_screen.dart';
+import 'screens/test_widget_screen.dart';
+import 'screens/test_widget.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: testWidget(),
-      ),
+    const MaterialApp(
+      home: HomeWidget(),
     ),
   );
 }
 
-class testWidget extends StatelessWidget {
-  const testWidget({super.key});
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({super.key});
 
   @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Text(
-            "Hello, flutter",
-            style: TextStyle(fontSize: 32, color: Colors.black),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: Center(
+        child: TextButton(
+          child: const Text(
+            'Go To Nav Test Screen',
+            style: TextStyle(fontSize: 26),
           ),
-          Text(
-            "Hello, student",
-            style: TextStyle(fontSize: 32, color: Colors.black),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Hello, 1",
-                style: TextStyle(fontSize: 32, color: Colors.black),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NavTestScreen(),
               ),
-              Text(
-                "Hello, 2",
-                style: TextStyle(fontSize: 32, color: Colors.black),
-              ),
-              Column(
-                children: [
-                  Text(
-                    "Hello, 3",
-                    style: TextStyle(fontSize: 32, color: Colors.black),
-                  ),
-                  Text(
-                    "Hello, 4",
-                    style: TextStyle(fontSize: 32, color: Colors.black),
-                  ),
-                  Text(
-                    "Hello, 5",
-                    style: TextStyle(fontSize: 32, color: Colors.black),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Text(
-            DateTime.now().toString(),
-            style: TextStyle(fontSize: 32, color: Colors.black),
-          ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }
